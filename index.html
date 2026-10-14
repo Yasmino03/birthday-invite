@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>a little something for you ❤️</title>
+<meta property="og:title" content="a little something for you ❤️">
+<meta property="og:description" content="tap to open">
+<meta name="theme-color" content="#FFD8DF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Amatic+SC:wght@700&family=Caveat:wght@600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{background:#FFD8DF;display:flex;justify-content:center;align-items:flex-start;overflow:hidden;-webkit-tap-highlight-color:transparent}
+#wrap{position:relative}
+#card{width:390px;height:844px;position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#FFD8DF;font-family:'Caveat',cursive;color:#8A1426}
+a{color:#B3172F}
+button{font:inherit}
+.hidden{display:none !important}
+@keyframes floatUp{0%{transform:translateY(0) rotate(-10deg);opacity:0}15%{opacity:.85}100%{transform:translateY(-860px) rotate(14deg);opacity:0}}
+@keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes popIn{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.05);opacity:1}100%{transform:scale(1)}}
+@keyframes burst{0%{transform:translate(0,0) scale(.4);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1);opacity:0}}
+@keyframes flicker{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.85)}}
+.heart-float{position:absolute;bottom:-40px;animation:floatUp linear infinite}
+.title{transition:opacity .4s ease, transform .4s ease}
+.open .title{opacity:0;transform:translateY(-12px)}
+.env{position:relative;width:300px;height:200px;animation:bob 3s ease-in-out infinite}
+.open .env{animation:none}
+.flap{transform-origin:50% 0;transition:transform .7s cubic-bezier(.5,0,.2,1),z-index 0s .35s;transform:rotateX(0deg);z-index:4}
+.open .flap{transform:rotateX(180deg);z-index:1}
+.letter{height:172px;transition:transform .9s cubic-bezier(.3,1.4,.5,1) .55s, height .5s ease .55s;transform:translateY(0)}
+.open .letter{height:300px;transform:translateY(-250px)}
+.seal{animation:pulse 1.6s ease-in-out infinite;transition:opacity .25s}
+.open .seal{opacity:0}
+.hint{animation:wiggle 1.2s ease-in-out infinite;transform-origin:0 0}
+.open .hint{display:none}
+.pop{animation:popIn .55s cubic-bezier(.3,1.4,.5,1) both}
+.flame{transform-origin:50% 100%;transform-box:fill-box;animation:flicker .6s ease-in-out infinite}
+.yes-btn{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.no-btn{transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.spark{position:absolute;left:50%;top:50%;animation:burst 1.4s ease-out forwards}
+.env-btn{background:none;border:0;padding:0;cursor:pointer}
+.env-btn:focus-visible,.yes-btn:focus-visible,.no-btn:focus-visible{outline:3px solid #8A1426;outline-offset:4px}
+.plan li{display:flex;gap:8px;align-items:baseline}
+.plan li span:first-child{font-family:'Dancing Script',cursive;color:#D11F3A;font-size:22px;width:16px}
+.btn{border-radius:999px;cursor:pointer;font-family:'Caveat',cursive;font-weight:700;min-height:48px;line-height:1;border:2.5px solid #D11F3A}
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="card">
+
+  <svg aria-hidden="true" width="390" height="844" viewBox="0 0 390 844" style="position:absolute;inset:0;pointer-events:none">
+    <path id="frameA" fill="none" stroke="#D11F3A" stroke-width="3" stroke-linejoin="round"></path>
+    <path id="frameB" fill="none" stroke="#D11F3A" stroke-width="1.4" stroke-opacity=".6" stroke-linejoin="round"></path>
+    <g fill="#FFD8DF" stroke="#D11F3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M195 26 C178 4 150 10 156 26 C161 40 182 34 195 26 Z"></path>
+      <path d="M195 26 C212 4 240 10 234 26 C229 40 208 34 195 26 Z"></path>
+      <path d="M192 28 C186 42 178 52 168 60" fill="none"></path>
+      <path d="M198 28 C204 42 212 52 222 60" fill="none"></path>
+      <ellipse cx="195" cy="27" rx="6" ry="5"></ellipse>
+    </g>
+    <g fill="#FFD8DF" stroke="#D11F3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M195 818 C178 796 150 802 156 818 C161 832 182 826 195 818 Z"></path>
+      <path d="M195 818 C212 796 240 802 234 818 C229 832 208 826 195 818 Z"></path>
+      <ellipse cx="195" cy="819" rx="6" ry="5"></ellipse>
+    </g>
+    <g id="doodles"></g>
+  </svg>
+
+  <div id="floaters" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
+
+  <!-- Screen 1: envelope -->
+  <div id="screen1" style="position:absolute;inset:0">
+    <div class="title" style="position:absolute;left:0;right:0;top:72px;display:flex;flex-direction:column;align-items:center;text-align:center">
+      <h1 style="margin:0;display:flex;flex-direction:column;align-items:center;font-family:'Dancing Script',cursive;font-weight:700;color:#D11F3A;transform:rotate(-5deg)">
+        <span style="font-size:66px;line-height:.95;margin-right:70px">Happy</span>
+        <span style="font-size:74px;line-height:.95">birthday</span>
+        <span style="font-size:58px;line-height:1;margin-left:90px">my love</span>
+      </h1>
+      <p style="margin:52px 0 0;padding:0 50px;font-family:'Amatic SC',cursive;font-weight:700;font-size:30px;line-height:1.1;letter-spacing:.03em;color:#B3172F">a little invitation to my birthday boy ❤️</p>
+    </div>
+
+    <button id="envBtn" class="env-btn" aria-label="Open the envelope" style="position:absolute;left:45px;top:470px;width:300px;height:200px;perspective:900px">
+      <div class="env">
+        <div class="letter" style="position:absolute;left:16px;right:16px;top:12px;overflow:hidden;background:#FFF5EA;border:2.5px solid #D11F3A;border-radius:16px;box-shadow:0 6px 16px rgba(138,20,38,.15);z-index:2;box-sizing:border-box;padding:22px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24"><path fill="#F6A9B8" stroke="#D11F3A" stroke-width="1.6" d="M12 20s-7-4.4-9.2-8.6C1.2 8.3 3 4.5 6.6 4.5c2 0 3.4 1.1 5.4 3.2 2-2.1 3.4-3.2 5.4-3.2 3.6 0 5.4 3.8 3.8 6.9C19 15.6 12 20 12 20z"></path></svg>
+          <p style="margin:0;font-family:'Dancing Script',cursive;font-weight:700;font-size:32px;line-height:1.1;color:#D11F3A">Happy 24th baby</p>
+          <p style="margin:6px 0 0;font-family:'Caveat',cursive;font-weight:600;font-size:22px;line-height:1.15;color:#8A1426">wanted to give you something special, hope you like it!</p>
+          <p style="margin:6px 0 0;font-family:'Amatic SC',cursive;font-weight:700;font-size:34px;line-height:1;color:#B3172F">let's go on a date?</p>
+        </div>
+
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,#E8455A 0 24px,#F9C3CD 24px 48px);border-radius:16px;border:2.5px solid #D11F3A;box-sizing:border-box;z-index:0;box-shadow:0 12px 26px rgba(138,20,38,.22)"></div>
+        <svg aria-hidden="true" viewBox="0 0 300 200" width="300" height="200" style="position:absolute;inset:0;z-index:3;pointer-events:none">
+          <defs>
+            <pattern id="envStripes" patternUnits="userSpaceOnUse" width="48" height="200">
+              <rect x="0" y="0" width="24" height="200" fill="#E8455A"></rect>
+              <rect x="24" y="0" width="24" height="200" fill="#F9C3CD"></rect>
+            </pattern>
+          </defs>
+          <path d="M3 18 Q3 3 18 3 L150 118 L3 197 Z" fill="url(#envStripes)"></path>
+          <path d="M297 18 Q297 3 282 3 L150 118 L297 197 Z" fill="url(#envStripes)"></path>
+          <path d="M3 197 L150 100 L297 197 Z" fill="url(#envStripes)"></path>
+          <path d="M3 197 L150 100 L297 197 Z" fill="#FFF5EA" fill-opacity=".14"></path>
+          <path d="M150 118 L4 196 M150 118 L296 196" stroke="#FFF5EA" stroke-width="2.5" fill="none"></path>
+          <rect x="1.25" y="1.25" width="297.5" height="197.5" rx="16" fill="none" stroke="#D11F3A" stroke-width="2.5"></rect>
+        </svg>
+        <div class="flap" style="position:absolute;left:0;top:0;width:300px;height:120px">
+          <svg aria-hidden="true" viewBox="0 0 300 120" width="300" height="120" style="display:block;overflow:visible;filter:drop-shadow(0 3px 4px rgba(138,20,38,.2))"><path d="M2 18 Q2 2 18 2 L282 2 Q298 2 298 18 L162 112 Q150 120 138 112 Z" fill="url(#envStripes)" stroke="#FFF5EA" stroke-width="4" stroke-linejoin="round"></path><path d="M2 18 Q2 2 18 2 L282 2 Q298 2 298 18 L162 112 Q150 120 138 112 Z" fill="none" stroke="#D11F3A" stroke-width="2" stroke-linejoin="round"></path></svg>
+        </div>
+        <div class="seal" style="position:absolute;left:118px;top:76px;width:64px;height:64px;z-index:5;display:flex;align-items:center;justify-content:center">
+          <svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" style="position:absolute;inset:0;filter:drop-shadow(0 3px 5px rgba(138,20,38,.3))"><path id="sealPath" fill="#FFF5EA" stroke="#D11F3A" stroke-width="2.2" stroke-linejoin="round"></path></svg>
+          <span style="position:relative;font-family:'Dancing Script',cursive;font-weight:700;font-size:28px;line-height:1;color:#D11F3A">24</span>
+        </div>
+        <div aria-hidden="true" class="hint" style="position:absolute;left:186px;top:128px;z-index:6;display:flex;flex-direction:column;align-items:flex-start">
+          <svg width="38" height="30" viewBox="0 0 38 30" fill="none" stroke="#8A1426" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M34 27 C26 26 14 21 6 7"></path><path d="M4 15 L5 5 L14 7"></path></svg>
+          <span style="margin-left:20px;background:#FFF5EA;color:#B3172F;border:1.8px solid #D11F3A;font-family:'Caveat',cursive;font-weight:700;font-size:19px;line-height:1;padding:3px 10px 5px;border-radius:999px">tap me</span>
+        </div>
+      </div>
+    </button>
+
+    <div id="answers" class="pop hidden" style="position:absolute;left:25px;top:700px;width:340px;height:90px;display:flex;gap:16px;align-items:center;justify-content:center">
+      <button id="yesBtn" class="btn yes-btn" style="background:#D11F3A;color:#FFF5EA;padding:8px 30px 11px;font-size:28px;box-shadow:0 6px 14px rgba(138,20,38,.3);position:relative;z-index:2">Yes!</button>
+      <button id="noBtn" class="btn no-btn" style="background:#FFF5EA;color:#B3172F;padding:8px 20px 11px;font-size:22px">No</button>
+    </div>
+  </div>
+
+  <!-- Screen 2: it's a date -->
+  <div id="screen2" class="hidden" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:62px 40px 46px;box-sizing:border-box;text-align:center">
+    <div id="sparks" aria-hidden="true" style="position:absolute;left:0;top:40px;width:390px;height:260px;pointer-events:none"></div>
+
+    <svg class="pop" role="img" aria-label="Birthday cake with two candles" width="170" height="140" viewBox="0 0 170 140">
+      <ellipse cx="85" cy="118" rx="74" ry="12" fill="#FFF5EA" stroke="#D11F3A" stroke-width="2.5"></ellipse>
+      <path d="M25 60 L25 108 Q85 126 145 108 L145 60" fill="#F9C3CD" stroke="#D11F3A" stroke-width="2.5" stroke-linejoin="round"></path>
+      <path d="M25 68 q10 14 20 3 q10 14 20 3 q10 14 20 3 q10 14 20 3 q10 14 20 3 q10 14 20 3" fill="none" stroke="#D11F3A" stroke-width="2.2" stroke-linecap="round"></path>
+      <ellipse cx="85" cy="60" rx="60" ry="12" fill="#FFF5EA" stroke="#D11F3A" stroke-width="2.5"></ellipse>
+      <rect x="68" y="24" width="9" height="34" rx="2" fill="#FFF5EA" stroke="#D11F3A" stroke-width="2.2"></rect>
+      <rect x="93" y="24" width="9" height="34" rx="2" fill="#FFF5EA" stroke="#D11F3A" stroke-width="2.2"></rect>
+      <path class="flame" d="M72.5 4 C66 12 67.5 20 72.5 20 C77.5 20 79 12 72.5 4 Z" fill="#F6A9B8" stroke="#D11F3A" stroke-width="2"></path>
+      <path class="flame" d="M97.5 4 C91 12 92.5 20 97.5 20 C102.5 20 104 12 97.5 4 Z" fill="#F6A9B8" stroke="#D11F3A" stroke-width="2"></path>
+      <text x="85" y="109" text-anchor="middle" font-family="Dancing Script, cursive" font-weight="700" font-size="25" fill="#B3172F">24</text>
+    </svg>
+
+    <h1 style="margin:10px 0 0;font-family:'Dancing Script',cursive;font-weight:700;font-size:66px;line-height:1;color:#D11F3A;transform:rotate(-4deg)">It's a date!</h1>
+    <p style="margin:12px 0 0;font-family:'Amatic SC',cursive;font-weight:700;font-size:28px;letter-spacing:.03em;color:#B3172F">to celebrate my favorite yaya!</p>
+
+    <div style="margin-top:14px;display:flex;align-items:baseline;gap:10px;justify-content:center"><span style="font-family:'Dancing Script',cursive;font-weight:700;font-size:30px;color:#D11F3A">on</span><span style="font-size:26px;font-weight:700">Friday, October 23rd</span></div>
+
+    <div style="margin-top:16px;width:100%;max-width:300px;background:#FFF5EA;border:2px solid #D11F3A;border-radius:18px;padding:10px 18px 14px;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;transform:rotate(-1.2deg);box-shadow:4px 4px 0 #F6A9B8">
+      <div style="font-family:'Dancing Script',cursive;font-weight:700;font-size:32px;line-height:1.1;color:#D11F3A">the plan:</div>
+      <ol class="plan" style="margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;text-align:left;font-size:21px;font-weight:700;line-height:1.15">
+        <li><span>1</span><span>get ready in your cutest outfit</span></li>
+        <li><span>2</span><span>pick your girl up</span></li>
+        <li><span>3</span><span>dinner &amp; cute pics together</span></li>
+        <li><span>4</span><span>the big gift reveal</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-top:22px;display:inline-flex;align-items:center;gap:6px;background:#F9C3CD;color:#8A1426;border:1.5px solid #D11F3A;border-radius:999px;padding:2px 12px 4px;font-family:'Caveat',cursive;font-weight:700;font-size:20px;transform:rotate(2deg)">
+      <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24"><path fill="#D11F3A" d="M12 20s-7-4.4-9.2-8.6C1.2 8.3 3 4.5 6.6 4.5c2 0 3.4 1.1 5.4 3.2 2-2.1 3.4-3.2 5.4-3.2 3.6 0 5.4 3.8 3.8 6.9C19 15.6 12 20 12 20z"></path></svg>
+      <span id="countdown"></span>
+      <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24"><path fill="#D11F3A" d="M12 20s-7-4.4-9.2-8.6C1.2 8.3 3 4.5 6.6 4.5c2 0 3.4 1.1 5.4 3.2 2-2.1 3.4-3.2 5.4-3.2 3.6 0 5.4 3.8 3.8 6.9C19 15.6 12 20 12 20z"></path></svg>
+    </div>
+
+    <p style="margin:26px 0 0;font-family:'Pacifico',cursive;font-weight:400;font-size:25px;line-height:1.4;color:#D11F3A;transform:rotate(-3deg)">I love you so much yarouhy❤️</p>
+
+    <a href="#" id="again" style="margin-top:auto;font-family:'Caveat',cursive;font-weight:700;font-size:18px;padding:10px">open it again</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+(function () {
+  var HEART = 'M12 20s-7-4.4-9.2-8.6C1.2 8.3 3 4.5 6.6 4.5c2 0 3.4 1.1 5.4 3.2 2-2.1 3.4-3.2 5.4-3.2 3.6 0 5.4 3.8 3.8 6.9C19 15.6 12 20 12 20z';
+  var NS = 'http://www.w3.org/2000/svg';
+  var $ = function (id) { return document.getElementById(id); };
+
+  // fit the 390x844 card to any screen
+  function fit() {
+    var s = Math.min(window.innerWidth / 390, window.innerHeight / 844);
+    var card = $('card'), wrap = $('wrap');
+    card.style.transform = 'scale(' + s + ')';
+    wrap.style.width = (390 * s) + 'px';
+    wrap.style.height = (844 * s) + 'px';
+    wrap.style.marginTop = Math.max(0, (window.innerHeight - 844 * s) / 2) + 'px';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  function scallop(x0, y0, x1, y1, amp, step) {
+    var d = 'M' + x0 + ' ' + y0;
+    var edges = [[x0, y0, x1, y0, 0, -1], [x1, y0, x1, y1, 1, 0], [x1, y1, x0, y1, 0, 1], [x0, y1, x0, y0, -1, 0]];
+    edges.forEach(function (e) {
+      var len = Math.hypot(e[2] - e[0], e[3] - e[1]);
+      var n = Math.max(1, Math.round(len / step));
+      for (var i = 1; i <= n; i++) {
+        var tm = (i - 0.5) / n, t1 = i / n;
+        d += ' Q' + (e[0] + (e[2] - e[0]) * tm + e[4] * amp).toFixed(1) + ' ' + (e[1] + (e[3] - e[1]) * tm + e[5] * amp).toFixed(1) +
+             ' ' + (e[0] + (e[2] - e[0]) * t1).toFixed(1) + ' ' + (e[1] + (e[3] - e[1]) * t1).toFixed(1);
+      }
+    });
+    return d + ' Z';
+  }
+  function badge(c, r, R, n) {
+    var d = 'M' + (c + r) + ' ' + c;
+    for (var k = 0; k < n; k++) {
+      var a1 = ((k + 1) / n) * Math.PI * 2, am = ((k + 0.5) / n) * Math.PI * 2;
+      d += ' Q' + (c + R * Math.cos(am)).toFixed(1) + ' ' + (c + R * Math.sin(am)).toFixed(1) + ' ' + (c + r * Math.cos(a1)).toFixed(1) + ' ' + (c + r * Math.sin(a1)).toFixed(1);
+    }
+    return d + ' Z';
+  }
+  $('frameA').setAttribute('d', scallop(26, 26, 364, 818, 10, 34));
+  $('frameB').setAttribute('d', scallop(31, 31, 359, 813, 8, 34));
+  $('sealPath').setAttribute('d', badge(32, 25, 31, 12));
+
+  // doodle hearts + sparkles
+  var g = $('doodles');
+  [[46, 112, -18, 1], [322, 92, 14, 0.9], [330, 316, -10, 1.1], [44, 380, 16, 0.85], [56, 640, -14, 1], [320, 612, 12, 0.9], [306, 752, -8, 1.05], [66, 760, 18, 0.8]].forEach(function (p) {
+    var el = document.createElementNS(NS, 'path');
+    el.setAttribute('d', HEART); el.setAttribute('fill', 'none'); el.setAttribute('stroke', '#D11F3A');
+    el.setAttribute('stroke-width', '1.8'); el.setAttribute('stroke-linejoin', 'round');
+    el.setAttribute('transform', 'translate(' + p[0] + ' ' + p[1] + ') rotate(' + p[2] + ') scale(' + p[3] + ')');
+    g.appendChild(el);
+  });
+  [[70, 220], [326, 210], [334, 470], [52, 520]].forEach(function (p) {
+    var el = document.createElementNS(NS, 'path');
+    el.setAttribute('d', 'M0 -9 C1 -2 2 -1 9 0 C2 1 1 2 0 9 C-1 2 -2 1 -9 0 C-2 -1 -1 -2 0 -9 Z');
+    el.setAttribute('fill', 'none'); el.setAttribute('stroke', '#D11F3A'); el.setAttribute('stroke-width', '1.6');
+    el.setAttribute('transform', 'translate(' + p[0] + ' ' + p[1] + ')');
+    g.appendChild(el);
+  });
+
+  var fills = ['#F9C3CD', '#FFF5EA', '#F6A9B8', '#E8455A'];
+  function heartSvg(fill, cls, style) {
+    return '<svg class="' + cls + '" style="' + style + '" viewBox="0 0 24 24"><path fill="' + fill + '" stroke="#D11F3A" stroke-width="1.5" d="' + HEART + '"></path></svg>';
+  }
+  var fh = '';
+  for (var i = 0; i < 6; i++) {
+    var size = 14 + (i * 5) % 12;
+    fh += heartSvg(fills[i % 4], 'heart-float', 'left:' + ((i * 61) % 320 + 30) + 'px;width:' + size + 'px;height:' + size + 'px;animation-duration:' + (11 + (i * 3) % 6) + 's;animation-delay:' + (i * 2.1) + 's');
+  }
+  $('floaters').innerHTML = fh;
+
+  // countdown
+  var target = new Date(2026, 9, 23);
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var days = Math.round((target - today) / 86400000);
+  $('countdown').textContent = days > 1 ? days + ' sleeps to go' : days === 1 ? 'tomorrow!' : days === 0 ? 'it’s today!' : 'best day ever';
+
+  // interactions
+  var noLabels = ['No', 'Are you sure?', 'Really sure??', 'Think again!', 'Pretty please?', 'You’ll break my heart', 'Last chance...'];
+  var noCount = 0, opened = false, timer;
+  var s1 = $('screen1'), s2 = $('screen2'), answers = $('answers'), yes = $('yesBtn'), no = $('noBtn');
+
+  function dodge() {
+    no.style.transform = 'translate(' + Math.round((Math.random() - 0.5) * 160) + 'px,' + Math.round((Math.random() - 0.5) * 60) + 'px)';
+  }
+
+  $('envBtn').addEventListener('click', function () {
+    if (opened) return;
+    opened = true;
+    s1.classList.add('open');
+    timer = setTimeout(function () { answers.classList.remove('hidden'); }, 1500);
+  });
+
+  no.addEventListener('mouseenter', dodge);
+  no.addEventListener('click', function () {
+    noCount++;
+    if (noCount >= noLabels.length) { no.classList.add('hidden'); }
+    else { no.textContent = noLabels[noCount]; dodge(); }
+    yes.style.transform = 'scale(' + Math.min(1 + noCount * 0.22, 2.4) + ')';
+  });
+
+  yes.addEventListener('click', function () {
+    s1.classList.add('hidden');
+    s2.classList.remove('hidden');
+    var sp = '';
+    for (var j = 0; j < 16; j++) {
+      var ang = (j / 16) * Math.PI * 2, dist = 110 + (j % 3) * 40;
+      sp += heartSvg(fills[j % 4], 'spark', 'width:18px;height:18px;--dx:' + Math.round(Math.cos(ang) * dist) + 'px;--dy:' + Math.round(Math.sin(ang) * dist + 40) + 'px;animation-delay:' + (j % 4) * 0.08 + 's');
+    }
+    $('sparks').innerHTML = sp;
+  });
+
+  $('again').addEventListener('click', function (e) {
+    e.preventDefault();
+    clearTimeout(timer);
+    opened = false; noCount = 0;
+    s2.classList.add('hidden');
+    s1.classList.remove('hidden', 'open');
+    answers.classList.add('hidden');
+    no.classList.remove('hidden'); no.textContent = 'No'; no.style.transform = '';
+    yes.style.transform = '';
+  });
+})();
+</script>
+</body>
+</html>
